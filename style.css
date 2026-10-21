@@ -50,7 +50,7 @@ body {
   font-weight: bold;
   transition: .3s ease;
 }
-#btn:hover {
+#btn:active {
   background: hwb(203 2% 46%);
   transform: translateY(-5px);
 }
