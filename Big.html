@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      min-height: 80vh;
+      background: linear-gradient(135deg,
+       #080b14,
+       #172554,
+       #4c1d95
+     );
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #ffffff;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      margin: 0;
+    }
+    .card {
+      backdrop-filter: blur(50px);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0px 10px rgba(45, 155, 252, 0.6196078431372549);
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    h2 {
+      text-align: center;
+      color: #2f8efb;
+      margin-bottom: 5px;
+    }
+    label {
+      font-size: 0.85rem;
+      color: #8b949e;
+    }
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      background: #0d1117;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 4px;
+    }
+    input:focus {
+      border-color: #58a6ff;
+    }
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #4798fa;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+      width: 100%;
+    }
+    button:hover {
+      background: #035985;
+    }
+    #message {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .hidden {
+      display: none;
+    }
+    #BackImg {
+      width: 550px;
+      margin-top: -100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Register</h2>
+    
+    <!-- ክፍል 1: ስልክ ቁጥር፣ ስም እና እድሜ -->
+    <div id="step-1">
+      <form id="form-step-1">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone"     placeholder="09XXXXXXXX or 07XXXXXXXX" maxlength="10" required>
+        
+        <label for="name" style="display:block; margin-top:8px;">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        
+        <label for="age" style="display:block; margin-top:8px;">Age (16+)</label>
+        <input type="number" id="age" placeholder="Enter your age" required>
+        
+        <button type="submit" id="next-btn">Next</button>
+      </form>
+    </div>
+
+    <!-- ክፍል 2: የ 5 ዲጂት ኮድ (በመጀመሪያ ተደብቋል) -->
+    <div id="step-2" class="hidden">
+      <form id="form-step-2">
+        <label for="code">5 Digit Code</label>
+        <input type="text" id="code" placeholder="Enter 5 digits" maxlength="5" inputmode="numeric" required>
+        
+        <button type="submit" id="submit-btn">Submit</button>
+      </form>
+    </div>
+
+    <!-- የስህተት ወይም የስኬት ማሳወቂያ በቀይ/አረንጓዴ ጽሁፍ -->
+    <p id="message"></p>
+  </div>
+
+  <!-- ከዚህ በፊት እንዳጠየቅከው Script ፋይሉ ለብቻው ተቀምጧል -->
+  <script src="Big.js"></script>
+</body>
+</html>

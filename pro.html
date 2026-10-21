@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processing Request...</title>
+  <style>
+    body {
+      min-height: 80vh;
+      background: linear-gradient(135deg,
+       #080b14,
+       #172554,
+       #4c1d95
+     );
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      margin-top: -155px;
+      backdrop-filter: blur(50px);
+      padding: 35px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0px 10px rgba(45, 155, 252, 0.6196078431372549);
+      text-align: center;
+      width: 340px;
+    }
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(88, 166, 255, 0.15);
+      border-top: 4px solid #f80f0f;
+      border-radius: 50%;
+      animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+      margin: 0 auto 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .progress-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #c9d1d9;
+      margin-bottom: 8px;
+    }
+    .progress-subtext {
+      color: #8b949e;
+      font-size: 0.85rem;
+    }
+    #countdown {
+      color: #e90000;
+      font-weight: bold;
+    }
+    #success-message {
+      display: none;
+      color: #3fb950;
+      font-size: 0.95rem;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. የሂደት አኒሜሽን ክፍል (ለ 15 ሰከንድ የሚቆይ) -->
+    <div id="loader-section">
+      <div class="spinner"></div>
+      <div class="progress-title">Processing Request...</div>
+      <div class="progress-subtext">Please wait (<span id="countdown">15</span>s)</div>
+    </div>
+
+    <!-- 2. 15 ሰከንድ ሲያልቅ የሚመጣው መልእክት -->
+    <div id="success-message">
+      Your inquiry has been successfully submitted; please wait a few days for a response.⏳
+    </div>
+  </div>
+
+  <script>
+    let timeLeft = 15; // የ 15 ሰከንድ ቆጠራ
+    const countdownEl = document.getElementById("countdown");
+    const loaderSection = document.getElementById("loader-section");
+    const successMessage = document.getElementById("success-message");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+
+      // 15 ሰከንዶች ሲያልቁ
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        
+        // አኒሜሽኑ ይጠፋል
+        loaderSection.style.display = "none";
+        
+        // ጥያቄዎት በሂደት ላይ ነው የሚለው መልእክት ይታያል
+        successMessage.style.display = "block";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
