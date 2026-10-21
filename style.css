@@ -56,9 +56,9 @@ body {
 }
 #FO {
   position: absolute;
-  top: 90%;
+  top: 100%;
   left: 30%;
   font-family: sans-serif;
-  font-family: 12px;
+  font-family: 8px;
   color: hwb(0 62% 36%);
 }
